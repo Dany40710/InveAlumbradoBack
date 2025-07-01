@@ -43,8 +43,8 @@ export class AuthController {
     @Get('check-user-status')
     @Auth(UserRoleGuard, [AvailableRoles.USER, AvailableRoles.ADMIN])
     checkUserStatus(@GetUser() user: User) {
-        console.log('checkUserStatus - Usuario:', user);
-        console.log('checkUserStatus - Rol:', user?.role?.name);
+        // console.log('checkUserStatus - Usuario:', user);
+        // console.log('checkUserStatus - Rol:', user?.role?.name);
         return this.authService.checkAuthStatus(user);
     }
 

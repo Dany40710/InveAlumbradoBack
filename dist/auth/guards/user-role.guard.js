@@ -24,8 +24,6 @@ let UserRoleGuard = UserRoleGuard_1 = class UserRoleGuard {
     async canActivate(context) {
         const validRole = this.reflector.get(metadata_roles_1.META_ROLES, context.getHandler());
         const req = context.switchToHttp().getRequest();
-        this.logger.debug(`Roles permitidos para la ruta: ${JSON.stringify(validRole)}`);
-        this.logger.debug(`Usuario en request: ${JSON.stringify(req.user)}`);
         return await this.roleService.rolesValidator({
             validRole,
             context,

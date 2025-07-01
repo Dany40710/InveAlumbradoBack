@@ -39,8 +39,6 @@ let AuthController = class AuthController {
         return this.authService.login(loginUserDto);
     }
     checkUserStatus(user) {
-        console.log('checkUserStatus - Usuario:', user);
-        console.log('checkUserStatus - Rol:', user?.role?.name);
         return this.authService.checkAuthStatus(user);
     }
     checkAdminStatus(user) {

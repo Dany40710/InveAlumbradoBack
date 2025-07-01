@@ -87,8 +87,6 @@ export class RoleService {
     }) {
         const req = context.switchToHttp().getRequest();
         const user = req.user as any;
-        console.log('rolesValidator - Usuario recibido:', user);
-        console.log('rolesValidator - Roles válidos:', validRole);
         if (!user) {
             throw new BadRequestException('Usuario no encontrado');
         }
@@ -100,7 +98,6 @@ export class RoleService {
             const role = await this.findOneById(user.roleId);
             roleName = role?.name;
         }
-        console.log('rolesValidator - Rol del usuario:', roleName);
         const validRolesArray = Array.isArray(validRole) ? validRole : [validRole];
         if (roleName && validRolesArray.includes(roleName as AvailableRoles)) {
             return true;

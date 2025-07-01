@@ -14,8 +14,8 @@ export class UserRoleGuard implements CanActivate {
     async canActivate(context: ExecutionContext): Promise<boolean> {
         const validRole = this.reflector.get(META_ROLES, context.getHandler());
         const req = context.switchToHttp().getRequest();
-        this.logger.debug(`Roles permitidos para la ruta: ${JSON.stringify(validRole)}`);
-        this.logger.debug(`Usuario en request: ${JSON.stringify(req.user)}`);
+        // this.logger.debug(`Roles permitidos para la ruta: ${JSON.stringify(validRole)}`);
+        // this.logger.debug(`Usuario en request: ${JSON.stringify(req.user)}`);
         return await this.roleService.rolesValidator({
             validRole,
             context,
